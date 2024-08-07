@@ -28,7 +28,7 @@ const VideoPlayerPage = () => {
       </div>
       {nft_link && (
         <a href={nft_link} target="_blank">
-          <button className="btn btn-outline absolute top-4 right-4">
+          <button className="btn btn-outline absolute top-4 right-4 text-white bg-[#98A9B8]">
             Comprar NFT
           </button>
         </a>

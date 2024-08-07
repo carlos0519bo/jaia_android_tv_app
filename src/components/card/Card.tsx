@@ -12,13 +12,13 @@ type CardProps<T extends FeaturedContent | Categories> = {
   data: T;
   toPlay?: boolean;
   category_slug?: string;
-  to?: string
+  to?: string;
 };
 
 export const Card = <T extends FeaturedContent | Categories>({
   data,
   category_slug = '',
-  to
+  to,
 }: CardProps<T>) => {
   const [videoTitle, setVideoTitle] = useState('');
 
@@ -33,13 +33,7 @@ export const Card = <T extends FeaturedContent | Categories>({
     img.alt = 'No image';
   };
 
-  const {
-    title,
-    static_image_url,
-    image,
-    id,
-    slug = '',
-  } = data || {};
+  const { title, static_image_url, image, id, slug = '' } = data || {};
 
   const inLive = 'EN DIRECTO';
 
@@ -57,14 +51,15 @@ export const Card = <T extends FeaturedContent | Categories>({
     if (to) {
       navigate(to);
     } else {
-      navigate(`/category/${category_slug}/subcategory/${slug}`, { state: { title, id } });
+      navigate(`/category/${category_slug}/subcategory/${slug}`, {
+        state: { title, id },
+      });
     }
   };
 
-
   return (
     <div
-      className="card w-full hover:scale-105 transition cursor-pointer"
+      className="card w-full hover:scale-105 transition cursor-pointer rounded-2xl"
       onClick={handleNavigate}
     >
       <figure className="h-64 w-full shadow-2xl rounded-2xl">
@@ -79,7 +74,9 @@ export const Card = <T extends FeaturedContent | Categories>({
         />
       </figure>
       <div className="bg-transparent h-16 flex items-center justify-center p-4">
-        <h2 className="card-title text-base capitalize">{videoTitle}</h2>
+        <h2 className="card-title text-base capitalize text-white">
+          {videoTitle}
+        </h2>
       </div>
       {title.includes(inLive) && (
         <div className="badge badge-error text-white gap-1 absolute top-3 right-4 text-xs">

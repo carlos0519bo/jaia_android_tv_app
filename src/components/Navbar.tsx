@@ -62,7 +62,7 @@ export const Navbar = () => {
             {categories.map((category) => (
               <div
                 className={cn(
-                  'h-10 px-2 flex justify-center items-center rounded-lg cursor-pointer',
+                  'h-10 px-2 flex justify-center items-center rounded-lg cursor-pointer text-gray-300',
                   isSelected(category.slug) &&
                     'bg-opacity-45 bg-gray-600 text-white'
                 )}

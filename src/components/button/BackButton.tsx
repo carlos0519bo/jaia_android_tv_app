@@ -1,5 +1,6 @@
 import { ChevronLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useBackButton } from '../../hooks/useBackButton';
 
 type BackButtonProps = {
   toHome?: boolean;
@@ -7,6 +8,8 @@ type BackButtonProps = {
 
 export const BackButton = ({ toHome }: BackButtonProps) => {
   const navigate = useNavigate();
+
+  useBackButton(toHome);
 
   const handleNavigate = () => {
     if (toHome) {
